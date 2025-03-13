@@ -6,7 +6,7 @@ const renderer = new THREE.WebGLRenderer({ antialias: true });
 renderer.setSize(window.innerWidth, window.innerHeight);
 container.appendChild(renderer.domElement);
 
-// Create a 3D Sphere (or replace with a bus model later)
+// Create a 3D Sphere
 const geometry = new THREE.SphereGeometry(1, 32, 32);
 const material = new THREE.MeshPhongMaterial({ color: 0x00aaff, wireframe: true });
 const sphere = new THREE.Mesh(geometry, material);
@@ -21,6 +21,9 @@ scene.add(pointLight);
 
 // Camera position
 camera.position.z = 5;
+
+// Set a background color
+scene.background = new THREE.Color(0x1a1a3d); // Dark blue gradient-like background
 
 // GSAP animations
 gsap.to(sphere.rotation, {
